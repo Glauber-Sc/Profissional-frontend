@@ -9,7 +9,7 @@ export function Button({ children, ...rest }) {
     return <ContainerButton {...rest}>{children}</ContainerButton>
 }
 
-// Validação do propTypes. Definindo o tipo de dados do children.
+//Validação do propTypes. Definindo o tipo de dados do children.
 Button.propTypes = {
     children: PropTypes.string
 }

@@ -1,0 +1,93 @@
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+export const Container = styled.div`
+    background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding: 35px 0;
+
+    .rec.rec-arrow {
+        background-color: #F0C137;
+        color: #efefef;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border: none;
+    }
+
+    .rec.rec-arrow:hover {
+        border: 2px solid #F0C137;
+        background-color: #efefef;
+        color: #F0C137;
+    }
+
+    .rec.rec-arrow:disabled {
+        border: none;
+        background-color: #bebebf;
+        color: #efefef;
+    }
+
+    .custom-pagination {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+      }
+      
+      .custom-pagination-item {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 5px;
+        background-color: gray; /* Cor do bullet inativo */
+        cursor: pointer;
+      }
+      
+      .custom-pagination-item.active {
+        background-color: #F0C137; /* Cor do bullet ativo */
+      }
+`
+
+export const CategoryImage = styled.img``
+
+export const ContainerItems = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const Image = styled.img`
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+`
+
+export const Button = styled(Link)`
+    background: #F0C137;
+    border-radius: 8px;
+    border: none;
+    height: 50px;
+    margin-top: 18px;
+    cursor: pointer;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    color: #ffffff;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`

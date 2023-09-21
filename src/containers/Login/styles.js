@@ -66,7 +66,7 @@ export const Input = styled.input`
 export const ButtonLogin = styled.button`
   width: 11.426rem;
   height: 3rem;
-  background: #fff;
+  background: #000;
   border-radius: 1.25rem;
   font-style: normal;
   font-weight: 500;

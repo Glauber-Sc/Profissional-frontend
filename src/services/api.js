@@ -3,7 +3,9 @@ import axios from 'axios'
 
 const apiCodeBurger = axios.create({
 
-  baseURL: 'http://177.71.203.249:3000'
+ // baseURL: 'http://177.71.203.249:3000'
+
+ // baseURL: 'http://192.168.100.7:3000'
  
   //baseURL: 'https://api-hambuguer.coders4future.com'
 

@@ -8,7 +8,7 @@ const apiCodeBurger = axios.create({
 
   //baseURL: 'https://api-hambuguer.coders4future.com'
 
-   baseURL: 'https://pedepede.fun'
+   baseURL: 'https://api.pedepede.fun'
 });
 
 // Interceptando um arequisição. Antes de enviar a requisição vai ser Adicionado Token JWT nas chamadas da API

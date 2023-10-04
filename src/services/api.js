@@ -1,14 +1,19 @@
 /* Arquivo de serviços para acessar o axios */
 import axios from "axios";
 
+// const apiCodeBurger = axios.create({
+//   baseURL: "https://177.71.203.249:3000",
+
+//   // baseURL: 'http://192.168.100.7:3000',
+
+//   //baseURL: 'https://api-hambuguer.coders4future.com'
+
+//   // baseURL: 'https://pedepede.fun'
+// });
+
 const apiCodeBurger = axios.create({
-  baseURL: "https://177.71.203.249:3000",
-
-  // baseURL: 'http://192.168.100.7:3000',
-
-  //baseURL: 'https://api-hambuguer.coders4future.com'
-
-  // baseURL: 'https://pedepede.fun'
+  baseURL: 'https://177.71.203.249:3000', // URL do seu backend
+  withCredentials: true, // Inclui credenciais (cookies) nas solicitações
 });
 
 // Interceptando um arequisição. Antes de enviar a requisição vai ser Adicionado Token JWT nas chamadas da API

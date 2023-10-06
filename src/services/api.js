@@ -12,7 +12,7 @@ import axios from "axios";
 // });
 
 const apiCodeBurger = axios.create({
-  baseURL: 'https://pedepede.fun', // URL do seu backend
+  baseURL: 'https://177.71.203.249:3000', // URL do seu backend
   withCredentials: true, // Inclui credenciais (cookies) nas solicitações
 });
 

@@ -99,22 +99,21 @@ function Row({ row, setOrders, orders }) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {Array.isArray(row.products) &&
-                    row.products.map((productRow) => (
-                      <TableRow key={productRow.id}>
-                        <TableCell component="th" scope="row">
-                          {productRow.quantity}
-                        </TableCell>
-                        <TableCell>{productRow.name}</TableCell>
-                        <TableCell>{productRow.category}</TableCell>
-                        <TableCell>
-                          <ProductsImg
-                            src={productRow.url}
-                            alt="Imagem-do-produto"
-                          />
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                  {row.products.map((productRow) => (
+                    <TableRow key={productRow.id}>
+                      <TableCell component="th" scope="row">
+                        {productRow.quantity}
+                      </TableCell>
+                      <TableCell>{productRow.name}</TableCell>
+                      <TableCell>{productRow.category}</TableCell>
+                      <TableCell>
+                        <ProductsImg
+                          src={productRow.url}
+                          alt="Imagem-do-produto"
+                        />
+                      </TableCell>
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
               <Typography variant="subtitle1" gutterBottom>

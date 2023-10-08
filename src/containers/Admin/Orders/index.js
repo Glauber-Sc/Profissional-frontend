@@ -22,7 +22,7 @@ function Orders() {
         const { data } = await api.get('orders');
         setOrders(data || []);
       } catch (error) {
-        console.error(error);
+        console.error("Erro ao carregar pedidos:", error);
       }
     }
 
@@ -63,7 +63,7 @@ function Orders() {
           <TableBody>
             {orders.map((order) => (
               <Row
-                key={order._id} // Certifique-se de usar a propriedade de identificação correta
+                key={order._id} // Use uma identificação única aqui
                 row={order}
                 setOrders={setOrders}
                 orders={orders}

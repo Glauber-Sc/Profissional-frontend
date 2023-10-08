@@ -44,9 +44,10 @@ function Orders() {
     }
 
     useEffect(() => {
-        const newRows = filteredOrders.map(ord => createData(ord))
+        const newRows = orders.map(ord => createData(ord))
         setRows(newRows)
-    }, [filteredOrders])
+    }, [orders])
+    
 
     // Vai atualizar todos os pedidos filtrados
     useEffect(() => {

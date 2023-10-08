@@ -98,7 +98,7 @@ function Row({ row, setOrders, orders }) {
                     <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody>
+                {/* <TableBody>
                   {row.products.map((productRow) => (
                     <TableRow key={productRow.id}>
                       <TableCell component="th" scope="row">
@@ -114,7 +114,7 @@ function Row({ row, setOrders, orders }) {
                       </TableCell>
                     </TableRow>
                   ))}
-                </TableBody>
+                </TableBody> */}
               </Table>
               <Typography variant="subtitle1" gutterBottom>
                 Total: R$ {calculateTotal(row.products)}

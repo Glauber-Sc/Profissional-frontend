@@ -3,7 +3,7 @@ import axios from "axios";
 
 const apiCodeBurger = axios.create({
 
-  baseURL: "https://177.71.203.249:3000",
+  baseURL: "https://localhost:3000",
 
   // baseURL: 'http://192.168.100.7:3000',
 

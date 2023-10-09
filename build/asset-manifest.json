@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.725878c1.css",
+    "main.js": "/static/js/main.a501e6f4.js",
+    "static/media/Logo_madruga_burguer.png": "/static/media/Logo_madruga_burguer.530626f7ddaa618f50f2.png",
+    "static/media/fundo.jpg": "/static/media/fundo.7043ffe4c875025df5a0.jpg",
+    "static/media/logo-home.jpeg": "/static/media/logo-home.9fd678f2fc5f57fa4ff9.jpeg",
+    "static/media/categoria.jpg": "/static/media/categoria.7553e0fac7d55e614177.jpg",
+    "static/media/cart.svg": "/static/media/cart.819cda32cd13666e7f785e59682b8270.svg",
+    "static/media/user.svg": "/static/media/user.cfa0629359c855d85008997478f14856.svg",
+    "index.html": "/index.html",
+    "main.725878c1.css.map": "/static/css/main.725878c1.css.map",
+    "main.a501e6f4.js.map": "/static/js/main.a501e6f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.725878c1.css",
+    "static/js/main.a501e6f4.js"
+  ]
+}

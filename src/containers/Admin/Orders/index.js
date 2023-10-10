@@ -19,17 +19,33 @@ function Orders() {
   const [activeStatus, setActiveStatus] = useState(1);
   const [rows, setRows] = useState([]);
 
-  useEffect(() => {
-    // Carregando menu de categorias
-    async function loadOrders() {
-      const data = await api.get("orders");
-      console.log("AAAAAAAAAAAAAAA", data);
-      setOrders(data);
-      setFilteredOrders(data);
-    }
+  // useEffect(() => {
+  //   // Carregando menu de categorias
+  //   async function loadOrders() {
+  //     const data = await api.get("orders");
+  //     console.log("AAAAAAAAAAAAAAA", data);
+  //     setOrders(data);
+  //     setFilteredOrders(data);
+  //   }
 
+  //   loadOrders();
+  // }, []);
+
+  useEffect(() => {
+    async function loadOrders() {
+      try {
+        const response = await api.get("orders");
+        const data = response.data; // Certifique-se de que os dados estejam na propriedade "data"
+        console.log("Dados da API:", data);
+        setOrders(data);
+        setFilteredOrders(data);
+      } catch (error) {
+        console.error("Erro ao carregar dados da API:", error);
+        // Trate o erro de acordo com sua necessidade
+      }
+    }
     loadOrders();
-  }, []);
+  }, [loadOrders()]);
 
   function createData(order) {
     return {
@@ -47,6 +63,14 @@ function Orders() {
     console.log("AAAAAAAAAAA", newRows);
     setRows(newRows);
   }, [filteredOrders]);
+
+  // useEffect(() => {
+  //   if (Array.isArray(filteredOrders) && filteredOrders.length > 0) {
+  //     const newRows = filteredOrders.map((ord) => createData(ord));
+  //     console.log("AAAAAAAAAAA", newRows);
+  //     setRows(newRows);
+  //   }
+  // }, [filteredOrders]);
 
   // Vai atualizar todos os pedidos filtrados
   useEffect(() => {

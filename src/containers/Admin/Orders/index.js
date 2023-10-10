@@ -45,7 +45,7 @@ function Orders() {
       }
     }
     loadOrders();
-  }, [loadOrders()]);
+  }, []);
 
   function createData(order) {
     return {

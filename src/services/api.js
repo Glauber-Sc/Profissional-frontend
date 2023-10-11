@@ -9,7 +9,11 @@ const apiCodeBurger = axios.create({
 
   //baseURL: 'https://api-hambuguer.coders4future.com'
 
-  baseURL: 'https://pedepede.fun'
+ // baseURL: 'https://pedepede.fun'
+
+  baseURL: 'https://localhost:3000'
+
+
 
 });
 

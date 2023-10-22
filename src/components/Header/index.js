@@ -37,7 +37,7 @@ export function Header() {
     <Container>
       <ContainerLeft>
         <PageLink onClick={() => push("/")} isActive={pathname === "/"}>
-          Home
+          Início
         </PageLink>
 
         <PageLink
@@ -45,8 +45,18 @@ export function Header() {
           onClick={() => push("/produtos")}
           isActive={pathname.includes("/produtos")}
         >
-          Ver Produto
+          Produtos
         </PageLink>
+
+        <PageLink
+          style={{ marginLeft: "5px" }}
+          onClick={() => push("/order-tracking")}
+          isActive={pathname.includes("/order-tracking")}
+        >
+          Pedidos
+        </PageLink>
+
+
       </ContainerLeft>
 
       <ContainerRight>

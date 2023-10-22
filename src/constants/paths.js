@@ -14,6 +14,7 @@ const paths = {
   Home: "/",
   Register: "/cadastro",
   Login: "/login",
+  OrderTracking: "/order-tracking"
 };
 
 export default paths;

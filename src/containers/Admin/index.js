@@ -11,6 +11,7 @@ import NewCategory from "./NewCategory";
 import NewProduct from "./NewProduct";
 import Orders from "./Orders";
 import Financial from "./Financial";
+import OrderTracking from "../OrderTracking";
 import { Container, ContainerItems } from "./styles";
 
 export function Admin({ match: { path } }) {
@@ -26,6 +27,7 @@ export function Admin({ match: { path } }) {
         {path === paths.NewCategory && <NewCategory />}
         {path === paths.EditCategory && <EditCategory />}
         {path === paths.Financial && <Financial />}
+        {path === paths.OrderTracking && <OrderTracking />}
       </ContainerItems>
     </Container>
   );

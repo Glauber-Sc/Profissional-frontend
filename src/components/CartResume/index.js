@@ -106,7 +106,12 @@ export function CartResume() {
         valor: (finalPrice + deliveryTax).toFixed(2),
         nome: userData?.name,
       });
-      console.log("AQUI ESTA O RESPONSE DO API PIX", response)
+      //console.log("AQUI ESTA O RESPONSE DO API PIX", response);
+      // Verifique se a resposta da API contém o txid
+      if (response.data && response.data.txid) {
+        const txid = response.data.txid;
+        console.log("Txid da transação:", txid);
+      }
 
       setQrCodeImage(response.data.qrcodeImage);
       setQrCode(response.data.qrcode);
@@ -165,7 +170,6 @@ export function CartResume() {
 
   return (
     <div>
-
       {/* <div>
         <p>Nome: {userData?.name}</p>
         <p>Email: {userData?.email}</p>
@@ -194,7 +198,6 @@ export function CartResume() {
               {...register("street")}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              
             />
             {errors.street && (
               <ErrorEndereco>{errors.street.message}</ErrorEndereco>

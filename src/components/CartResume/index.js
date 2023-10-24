@@ -106,6 +106,7 @@ export function CartResume() {
         valor: (finalPrice + deliveryTax).toFixed(2),
         nome: userData?.name,
       });
+      console.log("AQUI ESTA O RESPONSE DO API PIX", response)
 
       setQrCodeImage(response.data.qrcodeImage);
       setQrCode(response.data.qrcode);

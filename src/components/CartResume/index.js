@@ -106,7 +106,7 @@ export function CartResume() {
         valor: (finalPrice + deliveryTax).toFixed(2),
         nome: userData?.name,
       });
-      //console.log("AQUI ESTA O RESPONSE DO API PIX", response);
+      console.log("AQUI ESTA O RESPONSE DO API PIX", response);
       // Verifique se a resposta da API contém o txid
       if (response.data && response.data.txid) {
         const txid = response.data.txid;

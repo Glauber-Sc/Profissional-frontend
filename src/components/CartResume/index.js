@@ -124,7 +124,7 @@ export function CartResume() {
       const responseOrder = await api.post("orders", {
         products: order,
         address_id: address_id,
-        txid: txid, // Inclua o txid na solicitação do pedido
+         txid:response.data.txid, // Inclua o txid na solicitação do pedido
       });
 
       if (responseOrder.data) {

@@ -52,6 +52,9 @@ export function CartResume() {
   const [deliveryTax] = useState(0);
   const { cartProducts, clearCart } = useCart();
 
+  const [orderId, setOrderId] = useState(null);
+
+
   const {
     register,
     handleSubmit,
@@ -105,6 +108,7 @@ export function CartResume() {
       const response = await apiPort4000.post("/pix", {
         valor: (finalPrice + deliveryTax).toFixed(2),
         nome: userData?.name,
+        order_id: orderId, // Inclua o orderId na criação da transação
       });
 
       setQrCodeImage(response.data.qrcodeImage);
@@ -121,6 +125,7 @@ export function CartResume() {
       });
 
       if (responseOrder.data) {
+        setOrderId(responseOrder.data.id); // Defina o orderId com o ID do pedido
         // const qrcodeResponse = await apiPort4000.get("/pix"); // Chama o endpoint /pix no backend
         // setQrCodeImage(qrcodeResponse.data.qrcodeImage); // Armazena a URL da imagem do QR Code no estado
 

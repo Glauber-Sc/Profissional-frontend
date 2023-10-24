@@ -100,66 +100,39 @@ export function CartResume() {
     const order = cartProducts.map((product) => {
       return { id: product.id, quantity: product.quantity };
     });
-
+  
+    let responseOrder;
+    let txid; // Declara a variável txid
+  
     try {
-      const response = await apiPort4000.post("/pix", {
+      const responsePix = await apiPort4000.post("/pix", {
         valor: (finalPrice + deliveryTax).toFixed(2),
         nome: userData?.name,
       });
-      console.log("AQUI ESTA O RESPONSE DO API PIX", response);
-      // Verifique se a resposta da API contém o txid
-      if (response.data && response.data.txid) {
-        const txid = response.data.txid;
-        console.log("Txid da transação:", txid);
-      }
-
-      setQrCodeImage(response.data.qrcodeImage);
-      setQrCode(response.data.qrcode);
-
-      const addressData = {
-        street: address,
-      };
-      const address_id = await saveAddress(addressData);
-
-      const responseOrder = await api.post("orders", {
-        products: order,
-        address_id: address_id,
-         txid:response.data.txid, // Inclua o txid na solicitação do pedido
-      });
-
-      if (responseOrder.data) {
-        // const qrcodeResponse = await apiPort4000.get("/pix"); // Chama o endpoint /pix no backend
-        // setQrCodeImage(qrcodeResponse.data.qrcodeImage); // Armazena a URL da imagem do QR Code no estado
-
-        await toast.promise(Promise.resolve(responseOrder.data), {
-          pending: "Realizando seu pedido...",
-          success: successMessage, // Utiliza a mensagem de sucesso do estado
-          error: "Falha ao tentar realizar o seu pedido, tente novamente!",
+  
+      console.log("AQUI ESTA O RESPONSE DO API PIX", responsePix);
+  
+      if (responsePix.data && responsePix.data.txid) {
+        txid = responsePix.data.txid; // Obtém o txid
+  
+        setQrCodeImage(responsePix.data.qrcodeImage);
+        setQrCode(responsePix.data.qrcode);
+  
+        const addressData = {
+          street: address,
+        };
+        const address_id = await saveAddress(addressData);
+  
+        responseOrder = await api.post("orders", {
+          products: order,
+          address_id: address_id,
+          txid: txid, // Inclua o txid na solicitação do pedido
         });
-
-        // // Envia o valor original para a rota /pix
-        // const responsePix = await axios.post("http://localhost:4000/pix", {
-        //   valor: finalPrice + deliveryTax.toFixed(2), // Envie o valor formatado
-        // });
-
-        // setQrCodeImage(qrcodeResponse.data.imagemQrcode);
-
-        // // Chamar o endpoint /pix no backend da porta 4000
-        // console.log("Before calling /pix endpoint...");
-
-        // // Chamar o endpoint /pix no backend da porta 4000
-        // await apiPort4000.get("/pix");
-
-        // console.log("After calling /pix endpoint...");
-
-        // Abrir nova janela ou guia com a URL do QR code
-        //window.open(responsePix, "_blank");
-
+        console.log("RESPONSE DO ORDER", responseOrder);
+      }
+  
+      if (responseOrder && responseOrder.data) {
         openModal();
-
-        //LEMBRAR DE FAZER ESSAS DUAS FUNCOES DE VOLTA
-        // push("/");
-        // clearCart();
       } else {
         throw new Error("Erro na resposta da API");
       }
@@ -168,6 +141,7 @@ export function CartResume() {
       toast.error("Falha ao tentar realizar o seu pedido, tente novamente!");
     }
   };
+  
 
   return (
     <div>

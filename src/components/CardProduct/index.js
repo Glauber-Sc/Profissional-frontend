@@ -19,14 +19,17 @@ export function CardProduct({ product }) {
   return (
     <>
       <Container>
-        <Image src={product.url} alt="imagem do produto" />
-        <div>
-          <ProductName>{product.name}</ProductName>
-          <ProductDescription>{product.description}</ProductDescription>
-          <ProductPrice>{product.formatedPrice}</ProductPrice>
-        </div>
-      </Container>
-      <Container style={{ marginTop: "-18px" }}>
+  <Image src={product.url} alt="imagem do produto" />
+  <div style={{  maxWidth: "50%" }}> {/* Ajuste a largura máxima desejada */}
+    <ProductName>{product.name}</ProductName>
+    <ProductDescription style={{ wordWrap: "break-word" }}>
+      {product.description}
+    </ProductDescription>
+    <ProductPrice>{product.formatedPrice}</ProductPrice>
+  </div>
+</Container>
+
+      <Container style={{marginTop: "-45px"  }}>
         <Button
           onClick={() => {
             putProductInCart(product);

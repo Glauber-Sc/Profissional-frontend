@@ -55,6 +55,7 @@ function Orders() {
       status: order.status,
       products: order.products,
       address: order.address, // Altere "description" para "address" aqui
+      
     };
   }
 
@@ -119,6 +120,7 @@ function Orders() {
               <TableCell style={{ color: "white" }}>Cliente</TableCell>
               <TableCell style={{ color: "white" }}>Data do Pedido</TableCell>
               <TableCell style={{ color: "white" }}>Endereço</TableCell>
+              <TableCell style={{ color: "white" }}>Contato</TableCell>
               <TableCell style={{ color: "white" }}>Status</TableCell>
             </TableRow>
           </TableHead>

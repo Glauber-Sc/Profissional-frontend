@@ -41,7 +41,7 @@ export const Container = styled.div`
         border-radius: 50%;
         margin: 5px;
         background-color: gray; /* Cor do bullet inativo */
-        cursor: pointer;
+      
       }
       
       .custom-pagination-item.active {
@@ -68,7 +68,7 @@ export const Button = styled(Link)`
     border: none;
     height: 50px;
     margin-top: 18px;
-    cursor: pointer;
+
 
     font-family: 'Roboto';
     font-style: normal;

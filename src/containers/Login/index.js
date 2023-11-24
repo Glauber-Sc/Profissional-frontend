@@ -84,7 +84,7 @@ export function Login() {
       />
       <ContainerItens>
         <img src={MadrugaLogo} alt="Logo-Magruga" />
-        <h1>Login</h1>
+        {/* <h1>Login</h1> */}
 
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <Label>Email</Label>
@@ -103,15 +103,7 @@ export function Login() {
           />
           <ErrorYup>{errors.password?.message}</ErrorYup>
 
-          <ButtonLogin
-            type="submit"
-            style={{
-              marginTop: "4.68rem",
-              marginBottom: "1.56rem",
-            }}
-          >
-            Entrar
-          </ButtonLogin>
+          <ButtonLogin type="submit">Entrar</ButtonLogin>
         </form>
         <SignInLink>
           Não possui conta?{" "}

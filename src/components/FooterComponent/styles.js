@@ -33,7 +33,7 @@ export const P = styled.p`
 export const Socials = styled.div`
     display: flex;
     gap: 10px;
-    cursor: pointer;
+
     margin-bottom: 30px;
     margin-top: 15px;
 

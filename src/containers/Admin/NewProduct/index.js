@@ -93,13 +93,21 @@ function NewProduct() {
         </div>
 
         <div>
-          <Label>Descrição</Label>
-          <Input 
-          as='textarea'
-          type="text" 
-          {...register('description')} />
-          <ErrorMessage>{errors.description?.message}</ErrorMessage>
-        </div>
+  <Label>Descrição</Label>
+  <textarea
+    {...register('description')}
+    maxLength={1000} // Defina o número máximo de caracteres permitidos
+    style={{
+      width: '100%',
+      maxWidth: '100%', // Defina a largura máxima desejada
+      height: 'auto',
+      border: '1px solid #ccc',
+      whiteSpace: 'pre-line', // Define o comportamento de quebra de linha
+    }}
+  />
+  <ErrorMessage>{errors.description?.message}</ErrorMessage>
+</div>
+
 
         <div>
           <LabelUpload>

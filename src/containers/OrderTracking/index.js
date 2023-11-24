@@ -48,80 +48,7 @@
 // // }
 
 // export default OrderTrackingPage;
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Typography,
-} from '@mui/material';
 
-import api from "../../services/api"
-
-export function OrderTracking() {
-  const [orders, setOrders] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadOrders() {
-      try {
-        // Faça a chamada para a API com autenticação
-        const response = await api.get('/orders/client'); // Certifique-se de usar a rota correta para os pedidos do cliente
-        const data = response.data;
-        console.log('Dados da API:', data);
-        setOrders(data);
-      } catch (error) {
-        console.error('Erro ao carregar dados da API:', error);
-        // Trate o erro de acordo com sua necessidade
-      } finally {
-        setIsLoading(false); // Indique que a carga dos pedidos foi concluída, independentemente do sucesso ou falha
-      }
-    }
-    loadOrders();
-  }, []); // O array vazio [] garante que o efeito só será executado após a montagem inicial do componente
-
-
-  return (
-    <div>
-      <Typography variant="h4" gutterBottom>
-        Acompanhamento de Pedidos
-      </Typography>
-      {isLoading ? (
-        <p>Carregando pedidos...</p>
-      ) : (
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Número do Pedido</TableCell>
-                <TableCell>Data</TableCell>
-                <TableCell>Endereço de Entrega</TableCell>
-                <TableCell>Status</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {orders.map((order) => (
-                <TableRow key={order._id}>
-                  <TableCell>{order._id}</TableCell>
-                  <TableCell>{order.createdAt}</TableCell>
-                  <TableCell>{order.address.street}</TableCell>
-                  <TableCell>{order.status}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
-    </div>
-  );
-}
-
-export default OrderTracking;
 
 
 // import React, { useState, useEffect } from 'react';
@@ -213,3 +140,93 @@ export default OrderTracking;
 // }
 
 // export default OrderTracking;
+
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Typography,
+  CircularProgress, // Adicionando um indicador de carregamento
+} from '@mui/material';
+
+import api from "../../services/api";
+
+const styles = {
+  container: {
+    padding: '20px',
+    maxWidth: '800px',
+    margin: '0 auto',
+  },
+  tableContainer: {
+    marginTop: '20px',
+  },
+};
+
+export function OrderTracking() {
+  const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadOrders() {
+      try {
+        // Faça a chamada para a API com autenticação
+        const response = await api.get('/orders/client'); // Certifique-se de usar a rota correta para os pedidos do cliente
+        const data = response.data;
+        console.log('Dados da API:', data);
+        setOrders(data);
+      } catch (error) {
+        console.error('Erro ao carregar dados da API:', error);
+        // Trate o erro de acordo com sua necessidade
+      } finally {
+        setIsLoading(false); // Indique que a carga dos pedidos foi concluída, independentemente do sucesso ou falha
+      }
+    }
+    loadOrders();
+  }, []); // O array vazio [] garante que o efeito só será executado após a montagem inicial do componente
+
+  return (
+    <div style={styles.container}>
+      <Typography variant="h4" gutterBottom>
+        Acompanhe seus Pedidos
+      </Typography>
+      {isLoading ? (
+        <div style={{ textAlign: 'center' }}>
+          <CircularProgress /> {/* Indicador de carregamento */}
+          <p>Carregando pedidos...</p>
+        </div>
+      ) : (
+        <TableContainer component={Paper} style={styles.tableContainer}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Número do Pedido</TableCell>
+                <TableCell>Data</TableCell>
+                <TableCell>Endereço de Entrega</TableCell>
+                <TableCell>Status</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order._id}>
+                  <TableCell>{order._id}</TableCell>
+                  <TableCell>{new Date(order.createdAt).toLocaleDateString()}</TableCell>
+                  <TableCell>{order.address.street}</TableCell>
+                  <TableCell>{order.status}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
+    </div>
+  );
+}
+
+export default OrderTracking;

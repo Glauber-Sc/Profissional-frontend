@@ -66,6 +66,9 @@ function Row({ row, setOrders, orders }) {
         <TableCell style={{ wordBreak: 'break-word',  maxWidth: '200px' }}>
           {row.address.street}
         </TableCell>
+        <TableCell style={{ wordBreak: 'break-word',  maxWidth: '200px' }}>
+          {row.address.phone}
+        </TableCell>
 
         <TableCell>
           <ReactSelectStyle

@@ -7,6 +7,8 @@ export const Container = styled.div`
     gap: 12px;
     padding: 15px;
     width: 90vw;
+    margin: 10px;
+
 
     div {
         display: flex;
@@ -24,6 +26,8 @@ export const ProductDescription = styled.p`
     font-size: 16px;
     line-height: 19px;
     color: #000000;
+    max-width: 100%; // Defina a largura máxima desejada
+  word-wrap: break-word; // Para que o texto quebre de linha quando necessário
 
 `;
 

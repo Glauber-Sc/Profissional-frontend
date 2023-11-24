@@ -35,9 +35,9 @@ export function Register() {
     password: Yup.string()
       .required("A senha é obrigatoria")
       .min(6, "A senha deve ter pelo menos 6 digitos"),
-    ConfirmPassword: Yup.string()
-      .required("A confirmação da senha é obrigatoria")
-      .oneOf([Yup.ref("password")], "As senhas devem ser iguais"),
+    // ConfirmPassword: Yup.string()
+    //   .required("A confirmação da senha é obrigatoria")
+    //   .oneOf([Yup.ref("password")], "As senhas devem ser iguais"),
   });
 
   /* Configuração react-hook-form */
@@ -84,7 +84,7 @@ export function Register() {
       {/* <RegisterImage src={RegisterImg} alt="register-image" /> */}
       <ContainerItens>
         <img src={MadrugaLogo} alt="Logo-Madruga" />
-        <h1>Cadastre-se</h1>
+        {/* <h1>Cadastre-se</h1> */}
 
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <Label error={errors.name?.message}>Nome</Label>
@@ -111,13 +111,13 @@ export function Register() {
           />
           <ErrorYup>{errors.password?.message}</ErrorYup>
 
-          <Label error={errors.ConfirmPassword?.message}>Confirmar Senha</Label>
+          {/* <Label error={errors.ConfirmPassword?.message}>Confirmar Senha</Label>
           <Input
             type="password"
             {...register("ConfirmPassword")}
             error={errors.ConfirmPassword?.message}
           />
-          <ErrorYup>{errors.ConfirmPassword?.message}</ErrorYup>
+          <ErrorYup>{errors.ConfirmPassword?.message}</ErrorYup> */}
 
           <ButtonLogin
             type="submit"
